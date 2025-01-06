@@ -25,7 +25,7 @@ public class AddStudent {
 			
 			//step 3: Prepare sql
 			ps = conn.prepareStatement("insert into student values(?,?,?)");
-			ps.setInt(1, 104);
+			ps.setInt(1, 105);
 			ps.setString(2, "Omkar");
 			ps.setDouble(3, 95.88);
 			
