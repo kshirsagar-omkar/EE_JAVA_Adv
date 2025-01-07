@@ -1,5 +1,10 @@
 package com.tca;
 
+
+//Assignment 1: delete Student which contains 'sachin' in their names
+
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,8 +26,12 @@ public class Main {
 	
 	public static void main(String[] args) {	
 		
-		String query = "DELETE FROM student WHERE rno = ?";
-		Integer rno = 104;
+//		String query = "DELETE FROM student WHERE rno = ?";
+//		Integer rno = 104;
+		
+		
+		//Assignment query
+		String assQuery = "DELETE FROM student WHERE name LIKE '%sachin%'";
 		
 		Integer successVal = null;
 		
@@ -38,18 +47,21 @@ public class Main {
 			
 			
 			//step 3: create SQL
-			ps = conn.prepareStatement(query);
-			ps.setInt(1, rno);
+//			ps = conn.prepareStatement(query);
+//			ps.setInt(1, rno);
+//			
+			
+			ps = conn.prepareStatement(assQuery);
 
 			
 			//step 4: Fire SQL
 			successVal = ps.executeUpdate();
 			
 			if(successVal == 0) {
-				System.out.println("No Record Found For Roll Number : " + rno);
+				System.out.println("No Record Found");
 			}
 			else {
-				System.out.println("Record Deleted Successfully For Roll Number : " + rno);
+				System.out.println("Record Deleted Successfully");
 			}
 			
 			
