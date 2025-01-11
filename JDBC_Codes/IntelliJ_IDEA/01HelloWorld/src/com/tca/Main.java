@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 
 public class Main {
 
-    public final static String URL = "jdbc:postgresql://localhost:5432/ee_java_db?sslmode=disable";
+    public final static String URL = "jdbc:postgresql://localhost:5432/ee_java_db?ssl=true&sslmode=require";
     public final static String USER = "root";
     public final static String PASSWORD = "root@123";
     public final static String DRIVER = "org.postgresql.Driver";
