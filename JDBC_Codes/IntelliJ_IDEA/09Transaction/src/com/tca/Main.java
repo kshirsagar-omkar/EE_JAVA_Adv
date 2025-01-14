@@ -21,7 +21,7 @@ public class Main {
 
 
         Integer senderAccNo = 101;
-        Integer receiverAccNo = 102;
+        Integer receiverAccNo = 104;
         Double amountToBeTransfer = 500.0;
 
         if( transferMoney( senderAccNo, receiverAccNo, amountToBeTransfer ) ){
@@ -53,14 +53,18 @@ public class Main {
             ps1 = conn.prepareStatement("UPDATE account SET balance = balance - ? WHERE acc_no = ?");
             ps1.setDouble(1,amount);
             ps1.setInt(2,sender);
-            ps1.executeUpdate();
+            if(ps1.executeUpdate() == 0){
+                throw new SQLException("Record Not Found For Sender Account Number: " + sender);
+            }
 
 //            Integer.parseInt("abc");
 
             ps2 = conn.prepareStatement("UPDATE account SET balance = balance + ? WHERE acc_no = ?");
             ps2.setDouble(1, amount);
             ps2.setInt(2, receiver);
-            ps2.executeUpdate();
+            if(ps2.executeUpdate() == 0){
+                throw new SQLException("Record Not Found For Receiver Account Number: " + receiver);
+            }
 
             conn.commit();
 
