@@ -21,7 +21,7 @@ public class Main {
 
 
         Integer senderAccNo = 101;
-        Integer receiverAccNo = 104;
+        Integer receiverAccNo = 102;
         Double amountToBeTransfer = 500.0;
 
         if( transferMoney( senderAccNo, receiverAccNo, amountToBeTransfer ) ){
@@ -67,8 +67,6 @@ public class Main {
             }
 
             conn.commit();
-
-
             return true;
         }
         catch (Exception e){
@@ -79,8 +77,6 @@ public class Main {
                 System.out.println("--------------TRANSACTION ROLLBACK--------------");
                 e.printStackTrace();
             }
-
-            return false;
         }
         finally {
             try {
@@ -90,6 +86,7 @@ public class Main {
             }
         }
 
+        return false;
     }
 
 
