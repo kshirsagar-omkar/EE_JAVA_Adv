@@ -30,35 +30,34 @@ public class Main {
             try(BufferedReader reader = new BufferedReader( new FileReader("src/resources/data.csv"))){
 
                 String line = null;
-                Integer rno = null;
-                String name = null;
-                Double per = null;
 
                 while( (line = reader.readLine()) != null ){
                     String token[] = line.split(",");
 
-                    if( token.length != 3 ){
-                        System.out.println("Invalid Record!!");
-                        continue;
-                    }
-
-
                     try{
-                        rno = Integer.parseInt(token[0]);
-                        name = token[1];
-                        per = Double.parseDouble(token[2]);
-                    } catch (Exception e) {
-                        System.out.println("Invalid Record While Parsing!!");
-                        System.out.println(e.getMessage());
+                        if( token.length != 3 ){
+                            throw new Exception("Invalid Record From File");
+                        }
+
+                        ps.setInt(1,Integer.parseInt(token[0]));
+                        ps.setString(2,token[1]);
+                        ps.setDouble(3,Double.parseDouble(token[2]));
+
+                        ps.executeUpdate();
+                    }
+                    catch (Exception e) {
+                        System.out.println("\nUnable to add {" + line + " } Record!!");
+                        System.out.println(e.getMessage()+"\n");
+                        conn.rollback();
+
+                        //Add this Record to log
                         continue;
                     }
-
-                    ps.setInt(1,rno);
-                    ps.setString(2,name);
-                    ps.setDouble(3,per);
-
-                    ps.addBatch();
+                    conn.commit();
+                    System.out.println("Record {" + line + " } Added Successfully!!");
                 }
+
+                System.out.println("\n\nData Migration Process Done!!!");
 
             }
             catch (Exception e) {
@@ -67,17 +66,7 @@ public class Main {
                 e.printStackTrace();
             }
 
-            ps.executeBatch();
-            conn.commit();
-
-            System.out.println("Records Added Successfully!!!");
-
         } catch (Exception e) {
-            try {
-                conn.rollback();
-            } catch (Exception ex) {
-                e.printStackTrace();
-            }
             e.printStackTrace();
         }
         finally {
