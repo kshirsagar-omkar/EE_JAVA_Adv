@@ -1,4 +1,4 @@
-package com.tca.model;
+package com.tca.entity;
 
 public class Student {
     private Integer rollNumber = null;

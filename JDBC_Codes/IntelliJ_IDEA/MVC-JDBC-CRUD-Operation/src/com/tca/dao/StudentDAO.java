@@ -1,4 +1,7 @@
-package com.tca.model;
+package com.tca.dao;
+
+import com.tca.config.DatabaseConfig;
+import com.tca.entity.Student;
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -6,15 +9,10 @@ import java.util.List;
 
 public class StudentDAO {
 
-    private Connection conn = null;
-
-    public StudentDAO(Connection conn) {
-        this.conn = conn;
-    }
 
 
-    public void addStudent(Student student) throws SQLException {
-
+    public static void addStudent(Student student) throws SQLException {
+        Connection conn = DatabaseConfig.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO student VALUES (?,?,?)");
             ps.setInt(1, student.getRollNumber());
@@ -28,8 +26,8 @@ public class StudentDAO {
     }
 
 
-    public Student getStudentByRollNumber(Integer rno) throws SQLException {
-
+    public static Student getStudentByRollNumber(Integer rno) throws SQLException {
+        Connection conn = DatabaseConfig.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM student WHERE rno=?");
             ResultSet rs = null;
@@ -53,13 +51,11 @@ public class StudentDAO {
     }
 
 
-    public List<Student> getAllStudent() throws SQLException {
+    public static List<Student> getAllStudents() throws SQLException {
         List<Student> students = new LinkedList<>();
-        try {
-
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM student");
-
+        Connection conn = DatabaseConfig.getConnection();
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM student");){
 
             while (rs.next()) {
                 Student student = new Student();
@@ -68,11 +64,32 @@ public class StudentDAO {
                 student.setPercentage(rs.getDouble("per"));
                 students.add(student);
             }
-            return students;
         }
-
-
-        //Start From here
-
+        return students;
     }
+
+
+    public static void updateStudent(Student student) throws SQLException{
+        Connection conn = DatabaseConfig.getConnection();
+        try( PreparedStatement ps = conn.prepareStatement("UPDATE student SET name=?, per=? WHERE rno=?");){
+
+            ps.setString(1, student.getName());
+            ps.setDouble(2, student.getPercentage());
+            ps.setInt(3, student.getRollNumber());
+            ps.executeUpdate();
+
+        }
+    }
+
+    public static void deleteStudent(Integer rollNumber) throws SQLException{
+        Connection conn = DatabaseConfig.getConnection();
+        try(PreparedStatement ps = conn.prepareStatement("DELETE FROM student WHERE rno=?");){
+
+            ps.setInt(1, rollNumber);
+            ps.executeUpdate();
+
+        }
+    }
+
+
 }
