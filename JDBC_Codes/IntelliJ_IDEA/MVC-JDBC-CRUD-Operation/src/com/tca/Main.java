@@ -1,7 +1,9 @@
 package com.tca;
 
+import com.tca.config.DatabaseConfig;
 import com.tca.controller.StudentController;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
@@ -39,10 +41,16 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Exiting...");
+                    try {
+                        DatabaseConfig.closeConnection();
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
+
     }
 }

@@ -26,7 +26,18 @@ public class DatabaseConfig {
     }
 
     public static Connection getConnection() throws SQLException {
+        if(conn == null || conn.isClosed() ) {
+            throw new SQLException("Connection not formed or closed !!");
+        }
         return conn;
+    }
+
+
+    public static void closeConnection() throws SQLException{
+        if(conn == null || conn.isClosed()){
+            throw new SQLException("Connection not formed or closed already!!");
+        }
+        conn.close();
     }
 
 
