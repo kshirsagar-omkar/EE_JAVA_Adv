@@ -5,7 +5,7 @@ public class Ass01PrintInfo
 {
 	public static void main(String []args)
 	{
-		Thread t = new Thread();
+		Thread t = Thread.currentThread();
 
 		System.out.println("\nThread Information: " + t);
 	}
