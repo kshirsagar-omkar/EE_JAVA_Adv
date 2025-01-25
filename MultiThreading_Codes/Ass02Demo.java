@@ -2,6 +2,26 @@ import java.io.*;
 
 
 
+/*
+
+			Threads vs Process 
+
+			Thread: Threads are dependent on the parent process. If the process crashes, all threads are terminated.
+
+			Process: Processes are independent; a crash in one does not affect others.
+
+			answer -> Line Number 92( in main() Method ).
+
+
+
+			Thread: Communication between threads is easier since they share the same memory.
+
+			Process: Communication between processes (e.g., IPC) is more complex and slower.
+
+
+*/
+
+
 
 class A extends Thread
 {
@@ -67,8 +87,10 @@ public class Ass02Demo
 				//Write Processing Logic here 
 				//Dont write io Operations here
 				System.out.println("MAIN");
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			}
+			// return; -------------------> Still other threads are executed
+			System.exit(0);
 		}
 		catch(InterruptedException ie)
 		{
