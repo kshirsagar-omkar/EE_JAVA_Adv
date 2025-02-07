@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="149bcd6a-8233-450f-bbeb-981ced55d7d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Ass02-Test/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Ass02-Test/src/main/java/com/tca/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="149bcd6a-8233-450f-bbeb-981ced55d7d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,7 +176,7 @@
       <workItem from="1738402430871" duration="3000" />
       <workItem from="1738915243652" duration="432000" />
       <workItem from="1738929324061" duration="724000" />
-      <workItem from="1738930161190" duration="2104000" />
+      <workItem from="1738930161190" duration="2105000" />
     </task>
     <servers />
   </component>
