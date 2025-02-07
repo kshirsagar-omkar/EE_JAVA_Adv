@@ -9,16 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5da5a7d-648a-4327-8b82-474865c5110b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tca/Greet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/greet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ass01-First/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ass01-First/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tca/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tca/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-    </list>
+    <list default="true" id="e5da5a7d-648a-4327-8b82-474865c5110b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738931665936</updated>
       <workItem from="1738931667117" duration="2280000" />
-      <workItem from="1738934144408" duration="2018000" />
+      <workItem from="1738934144408" duration="2419000" />
     </task>
     <servers />
   </component>
