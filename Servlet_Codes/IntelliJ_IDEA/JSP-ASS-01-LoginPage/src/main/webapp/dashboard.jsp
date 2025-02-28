@@ -152,7 +152,7 @@
 <body>
 <!-- Floating Header -->
 <div class="floating-header">
-  <h2 class="mb-0 text-primary">StudyHub</h2>
+  <h2 class="mb-0 text-primary">StudyHub |  Hello, <%=(String)session.getAttribute("username")%></h2>
   <div class="d-flex gap-3">
     <button class="btn btn-sm btn-outline-primary">
       <i class="fas fa-bell"></i>
