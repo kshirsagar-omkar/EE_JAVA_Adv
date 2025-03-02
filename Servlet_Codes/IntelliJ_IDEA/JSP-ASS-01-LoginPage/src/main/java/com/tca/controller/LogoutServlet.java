@@ -1,4 +1,4 @@
-package com.tca;
+package com.tca.controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
