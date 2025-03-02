@@ -156,6 +156,12 @@
   <div class="register-link">
     Don't have an account? <a href="register.jsp">Register here</a>
   </div>
+
+  <!-- Link to go home page -->
+  <div class="register-link">
+    Navigate to home <a href="index.jsp">Home</a>
+  </div>
+
 </div>
 
 <!-- Bootstrap 5 JS and dependencies -->

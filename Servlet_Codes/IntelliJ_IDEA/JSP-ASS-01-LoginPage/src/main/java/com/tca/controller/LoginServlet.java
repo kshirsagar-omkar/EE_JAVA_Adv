@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 
-    public Boolean validateUser(String userName, String password){
+    private Boolean validateUser(String userName, String password){
 
 //        return ( userName.equals("om") && password.equals("123") );
 

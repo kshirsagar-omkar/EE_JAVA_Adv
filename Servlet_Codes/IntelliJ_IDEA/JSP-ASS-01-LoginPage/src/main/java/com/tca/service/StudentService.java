@@ -8,4 +8,6 @@ public interface StudentService {
 
     public abstract Student getStudent(Student student);
     public abstract List<Student> getAllStudent();
+
+    public abstract Boolean addStudent(Student student);
 }

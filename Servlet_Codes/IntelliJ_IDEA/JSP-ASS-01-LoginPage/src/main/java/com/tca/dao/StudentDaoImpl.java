@@ -117,5 +117,83 @@ public class StudentDaoImpl implements StudentDao{
 
 
 
+    public Boolean addStudent(Student student){
+
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        Boolean savedSuccessful = false;
+
+
+
+        try{
+            connection = DBUtil.getConnection();
+            connection.setAutoCommit(false);
+
+            preparedStatement = connection.prepareStatement("INSERT INTO student(name,per,username,password) VALUES (?,?,?,?)");
+            preparedStatement.setString(1,student.getName());
+            preparedStatement.setDouble(2, student.getPer());
+            preparedStatement.setString(3,student.getUsername());
+            preparedStatement.setString(4,student.getPassword());
+
+            if(preparedStatement.executeUpdate() != 0){
+                savedSuccessful = true;
+                connection.commit();
+            }
+            else {
+                savedSuccessful = false;
+                connection.rollback();
+            }
+
+        } catch (Exception e) {
+            System.out.println("\n\n\nException in StudentDaoImpl Class :" + e.getMessage() + "\n\n\n");
+            e.printStackTrace();
+            if(connection != null){
+                connection.rollback();
+            }
+        }
+        finally {
+            if(connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.out.println("\n\n\nException in StudentDaoImpl Class While Closing Connection:" + e.getMessage() + "\n\n\n");
+                    e.printStackTrace();
+                }
+            }
+            return savedSuccessful;
+        }
+
+    }
+
+
+
+
+
+    public static void main(String[] args) {
+        StudentDao studentDao = new StudentDaoImpl();
+        Student student = new Student();
+        student.setName("Omkar");
+        student.setPer(95.88);
+        student.setUsername("om");
+        student.setPassword("123");
+
+        if(studentDao.addStudent(student)){
+            System.out.println("saved");
+        }
+        else {
+            System.out.println("not saved");
+        }
+
+    }
+
+
+
+
+
+
+
+
 
 }
