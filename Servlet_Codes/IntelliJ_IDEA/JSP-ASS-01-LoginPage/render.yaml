@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: student-app
+    runtime: docker
+    env: docker
+    build:
+      dockerfile: Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://root:zEh8cb5Ge5ZC8QiYYcXpyOXNuymrztoS@dpg-cv497i5umphs73eqreh0-a.singapore-postgres.render.com/student
