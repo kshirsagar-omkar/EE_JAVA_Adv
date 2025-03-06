@@ -1,13 +1,14 @@
-FROM tomcat:10.1-jdk17
+# Use Tomcat 10 with JDK 17
+FROM tomcat:10-jdk17
 
-# Clean default apps
+# Clear default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Add PostgreSQL JDBC driver
-COPY webapp/WEB-INF/lib/postgresql-42.7.3.jar /usr/local/tomcat/lib/
+# Copy your WAR file
+COPY target/JSP-ASS-01-LoginPage.war /usr/local/tomcat/webapps/ROOT.war
 
-# Deploy WAR file (replace YOUR_APP.war with actual name)
-COPY target/JSP-ASS-01-LoginPage_warexploded.war /usr/local/tomcat/webapps/ROOT.war
+# Configure for Render's required port
+EXPOSE 10000
+RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml
 
-EXPOSE 8080
 CMD ["catalina.sh", "run"]
