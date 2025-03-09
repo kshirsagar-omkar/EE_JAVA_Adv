@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ca794fc-6a3b-4e9d-bfaf-e42d43a145f2" name="Changes" comment="JSP Tags and Redirection to JSP, EXCEPTION">
-      <change afterPath="$PROJECT_DIR$/../JSP-ASS-01-LoginPage/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JSP-ASS-01-LoginPage/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../JSP-ASS-01-LoginPage/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +123,7 @@
       <updated>1740595499645</updated>
       <workItem from="1740595500976" duration="1753000" />
       <workItem from="1740661799150" duration="632000" />
+      <workItem from="1741511443731" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="JSP Tags and Redirection to JSP, EXCEPTION">
       <option name="closed" value="true" />
