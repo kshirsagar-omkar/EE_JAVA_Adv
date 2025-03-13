@@ -56,7 +56,7 @@
                                 <li><a class="dropdown-item" href="./AddStudent">Add Student</a></li>
                                 <li><a class="dropdown-item" href="./DisplayStudent">Display Student</a></li>
 
-                                <li><a class="dropdown-item" href="#">Delete Student</a></li>
+                                <li><a class="dropdown-item" href="./DeleteStudent">Delete Student</a></li>
                                 <li><a class="dropdown-item" href="#">Update Student</a></li>
                             </ul>
                         </li>
