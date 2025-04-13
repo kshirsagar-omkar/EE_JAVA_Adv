@@ -19,8 +19,14 @@ public class Config {
     public static final String DB_USER = "root";
     public static final String DB_PASS = "root@123";
 
-
-
-
-
 }
+/*
+DATABASE SCHEMA
+
+CREATE TABLE otp_verification(
+        user_id INT REFERENCES users(user_id),
+otp VARCHAR(6),
+expiry_timestamp TIMESTAMP,
+PRIMARY KEY (user_id)
+);
+*/
