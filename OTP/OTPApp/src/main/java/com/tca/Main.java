@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
 
         String userEmail = Config.userEmail;
-        Integer userId = Config.userId;
 
         //1. Generate the otp
         Integer otpLength = 6;
@@ -21,7 +20,7 @@ public class Main {
 
         //3. Save the otp to database
         OTPRepository otpRepo = new OTPRepository();
-        otpRepo.saveOrUpdateOTP(userId, otp, expiryTimestamp);
+        otpRepo.saveOrUpdateOTP(userEmail, otp, expiryTimestamp);
 
 
         //4. Send the otp via mail
@@ -44,7 +43,7 @@ public class Main {
         System.out.print("Enter The OTP: ");
         String inputOTP = sc.nextLine().trim();
 
-        if(otpRepo.validateOTP(userId, inputOTP)){
+        if(otpRepo.validateOTP(userEmail, inputOTP)){
             System.out.println("OTP is Valid!");
         }
         else {

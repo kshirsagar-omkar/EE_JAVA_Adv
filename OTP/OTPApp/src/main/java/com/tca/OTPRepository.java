@@ -11,17 +11,17 @@ public class OTPRepository {
     private static final String DB_PASS = Config.DB_PASS;
 
     //Save or update the otp into database
-    public void saveOrUpdateOTP(Integer userId, String otp, Timestamp expiryTimestamp) {
-        String sql = "INSERT INTO otp_verification (user_id, otp, expiry_timestamp) " +
+    public void saveOrUpdateOTP(String email, String otp, Timestamp expiryTimestamp) {
+        String sql = "INSERT INTO otp_verification (email, otp, expiry_timestamp) " +
                 "VALUES (?, ?, ?) " +
-                "ON CONFLICT (user_id) DO UPDATE SET " +
+                "ON CONFLICT (email) DO UPDATE SET " +
                 "otp = EXCLUDED.otp, " +
                 "expiry_timestamp = EXCLUDED.expiry_timestamp";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, userId);
+            ps.setString(1, email);
             ps.setString(2, otp);
             ps.setTimestamp(3, expiryTimestamp);
 
@@ -35,13 +35,13 @@ public class OTPRepository {
 
 
 
-    public Boolean validateOTP(Integer userId, String inputOTP){
-        String sql = "SELECT otp, expiry_timestamp FROM otp_verification WHERE user_id = ? ORDER BY expiry_timestamp DESC LIMIT 1";
+    public Boolean validateOTP(String email, String inputOTP){
+        String sql = "SELECT otp, expiry_timestamp FROM otp_verification WHERE email = ? ORDER BY expiry_timestamp DESC LIMIT 1";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, userId);
+            ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
