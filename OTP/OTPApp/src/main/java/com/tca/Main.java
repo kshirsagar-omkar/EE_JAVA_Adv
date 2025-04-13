@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        String userEmail = "user@gmail.com";
-        Integer userId = 4;
+        String userEmail = Config.userEmail;
+        Integer userId = Config.userId;
 
         //1. Generate the otp
         Integer otpLength = 6;

@@ -6,10 +6,10 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailService {
-    private static final String HOST = "smtp.gmail.com";
-    private static final String PORT = "587";
-    private static final String SENDER_EMAIL = "senderEmail@gmail.com"; //211
-    private static final String PASSWORD = "qmxh xhus mixo vkra"; //your app password
+    private static final String HOST = Config.HOST;
+    private static final String PORT = Config.PORT;
+    private static final String SENDER_EMAIL = Config.SENDER_EMAIL;
+    private static final String PASSWORD = Config.PASSWORD;
 
     public void sendEmail(String recipient, String subject, String body) throws MessagingException{
         // Configure properties for javamail

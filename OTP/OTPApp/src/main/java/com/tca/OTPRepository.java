@@ -6,9 +6,9 @@ import java.time.ZonedDateTime;
 
 public class OTPRepository {
 
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/quizkar?sslmode=disable";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root@123";
+    private static final String DB_URL = Config.DB_URL;
+    private static final String DB_USER = Config.DB_USER;
+    private static final String DB_PASS = Config.DB_PASS;
 
     //Save or update the otp into database
     public void saveOrUpdateOTP(Integer userId, String otp, Timestamp expiryTimestamp) {
